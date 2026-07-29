@@ -1,0 +1,93 @@
+# 🎾 Tennis Training Tracker - Version 1
+
+sessions = []
+
+
+def add_session():
+
+    print("\n🎾 Add Practice Session")
+
+    date = input("Date (MM/DD/YYYY): ")
+    hours = float(input("Practice hours: "))
+    skill = input("Skill practiced (Serve/Forehand/Backhand/Volley): ")
+    notes = input("Coach notes or improvement area: ")
+
+
+    session = {
+        "date": date,
+        "hours": hours,
+        "skill": skill,
+        "notes": notes
+    }
+
+
+    sessions.append(session)
+
+    print("✅ Practice session saved!")
+
+
+def view_sessions():
+
+    print("\n📊 Tennis Training History")
+
+    if len(sessions) == 0:
+        print("No sessions recorded.")
+        return
+
+
+    total_hours = 0
+
+
+    for i, session in enumerate(sessions):
+
+        print("\nSession", i + 1)
+
+        print("Date:", session["date"])
+        print("Hours:", session["hours"])
+        print("Skill:", session["skill"])
+        print("Notes:", session["notes"])
+
+
+        total_hours += session["hours"]
+
+
+    print("\nTotal Practice Hours:", total_hours)
+
+
+
+while True:
+
+    print("""
+=========================
+🎾 Tennis Tracker
+=========================
+
+1. Add Practice Session
+2. View Training History
+3. Exit
+
+""")
+
+
+    choice = input("Choose option: ")
+
+
+    if choice == "1":
+
+        add_session()
+
+
+    elif choice == "2":
+
+        view_sessions()
+
+
+    elif choice == "3":
+
+        print("Keep improving! 🎾")
+        break
+
+
+    else:
+
+        print("Invalid choice")
